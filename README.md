@@ -90,3 +90,20 @@ docker compose up --build
 ```
 
 - Note: I fixed the backend `Dockerfile` to copy the correct jar name so the image build succeeds: `backend/Dockerfile` now references `queueflow360-backend-0.0.1-SNAPSHOT.jar`.
+
+## Quick Start (one command)
+
+I added cross-platform helper scripts to start the entire stack. They will use Docker Compose if Docker is available on your machine, otherwise they build and run the backend and serve the frontend locally.
+
+Windows (PowerShell):
+```powershell
+.
+./scripts/run-local.ps1
+```
+
+Unix / WSL / macOS:
+```bash
+./scripts/run-local.sh
+```
+
+These scripts attempt to detect Docker and fallback to local builds when Docker is not present.
