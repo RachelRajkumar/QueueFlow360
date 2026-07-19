@@ -88,26 +88,32 @@ QueueFlow 360/
 ## API Documentation
 
 ### Authentication
+
 - `POST /api/auth/register` - Register a new customer
 - `POST /api/auth/login` - Authenticate and receive JWT
 
 ### Admin 
+
 - `GET /api/admin/dashboard` - Get overall statistics
 - `GET, POST, PUT, DELETE /api/admin/departments` - Manage Departments
 - `GET, POST, PUT, DELETE /api/admin/services` - Manage Services
 
 ### Customer
+
 - `GET /api/customer/departments` - View available departments
 - `GET /api/customer/services/department/{id}` - View services
 - `POST /api/customer/appointments` - Book appointment (generates Token)
 - `GET /api/customer/appointments` - View appointment history
 
 ### Queue Management
+
 - `GET /api/queue/status` - (Customer) View live token status
 - `GET /api/queue/waiting` - (Admin) View waiting tokens
 - `POST /api/queue/call-next` - (Admin) Move next token to IN_PROGRESS
 - `POST /api/queue/complete/{token}` - (Admin) Complete a token
 - `POST /api/queue/skip/{token}` - (Admin) Skip a token
+
+---
 
 ## Future Enhancements
 
