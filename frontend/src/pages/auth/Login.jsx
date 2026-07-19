@@ -12,11 +12,16 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const user = await login(email, password);
+            const user = await login(email.trim(), password.trim());
             if (user.role === 'ROLE_ADMIN') navigate('/admin');
             else navigate('/customer');
         } catch (err) {
-            setError('Invalid email or password');
+            console.error('Login error:', err);
+            if (err.response) {
+                setError(`Server Error: ${err.response.status} - ${err.response.data?.message || 'Invalid credentials'}`);
+            } else {
+                setError(`Network Error: ${err.message}`);
+            }
         }
     };
 
